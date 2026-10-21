@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0b0b">
+  <meta name="description" content="Juan Felipe Durán. Entrenamiento, disciplina y crecimiento integral. Construye tu mejor versión.">
+  <title>Juan Felipe Durán | Entrenamiento y crecimiento integral</title>
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --panel: #141414;
+      --panel-2: #1b1b1b;
+      --text: #f7f5f0;
+      --muted: #b8b5ae;
+      --gold: #c9a45c;
+      --gold-light: #e2c783;
+      --line: rgba(201,164,92,.28);
+      --max: 1160px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--bg); color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin-inline: auto; }
+    .eyebrow { color: var(--gold-light); text-transform: uppercase; letter-spacing: .19em; font-size: .72rem; font-weight: 700; }
+    .gold { color: var(--gold-light); }
+    .topbar { position: sticky; top: 0; z-index: 20; background: rgba(11,11,11,.88); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,.07); }
+    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font-weight: 900; letter-spacing: -.06em; font-size: 1.45rem; white-space: nowrap; }
+    .brand span { color: var(--gold-light); }
+    .nav-links { display: flex; align-items: center; gap: 23px; color: #d0cec8; font-size: .88rem; }
+    .nav-links a:hover { color: var(--gold-light); }
+    .nav-cta, .btn { display: inline-flex; justify-content: center; align-items: center; gap: 9px; border-radius: 3px; padding: 13px 18px; font-size: .88rem; font-weight: 800; transition: transform .2s ease, background .2s ease; }
+    .nav-cta, .btn-primary { background: var(--gold); color: #101010; }
+    .btn:hover, .nav-cta:hover { transform: translateY(-2px); background: var(--gold-light); }
+    .btn-outline { border: 1px solid var(--line); color: var(--text); }
+    .btn-outline:hover { border-color: var(--gold); }
+    .hero { min-height: 690px; display: grid; align-items: center; position: relative; overflow: hidden; background: radial-gradient(ellipse at 78% 40%, rgba(201,164,92,.15), transparent 36%), linear-gradient(110deg, #0b0b0b 5%, #111 58%, #18150f 100%); }
+    .hero::after { content: "JF"; position: absolute; right: -1vw; bottom: -9rem; font-size: clamp(20rem, 45vw, 43rem); line-height: 1; font-weight: 950; letter-spacing: -.12em; color: rgba(255,255,255,.025); pointer-events: none; }
+    .hero-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 50px; align-items: center; padding-block: 90px; position: relative; z-index: 1; }
+    h1 { font-size: clamp(3.2rem, 7vw, 6.6rem); line-height: .94; letter-spacing: -.075em; margin: 18px 0 24px; max-width: 760px; }
+    h2 { font-size: clamp(2.1rem, 4.5vw, 3.8rem); line-height: 1.02; letter-spacing: -.06em; margin: 12px 0 20px; }
+    h3 { line-height: 1.2; margin: 0 0 12px; }
+    p { color: var(--muted); margin-top: 0; }
+    .hero-copy { max-width: 590px; font-size: 1.08rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .hero-visual { min-height: 440px; position: relative; display: flex; align-items: end; justify-content: center; }
+    .portrait-placeholder { width: min(100%, 420px); aspect-ratio: 4 / 5; border: 1px solid var(--line); background: linear-gradient(145deg, #27231b, #111 62%); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 32px; position: relative; overflow: hidden; }
+    .portrait-placeholder::before { content: ""; position: absolute; inset: 14px; border: 1px solid rgba(201,164,92,.18); }
+    .monogram { font-size: clamp(5rem, 11vw, 9rem); line-height: 1; letter-spacing: -.1em; font-weight: 950; color: var(--gold); }
+    .portrait-placeholder small { color: #bdb6a6; letter-spacing: .16em; text-transform: uppercase; font-size: .68rem; margin-top: 18px; }
+    .stat-strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); display: grid; grid-template-columns: repeat(3,1fr); margin-top: 45px; max-width: 580px; }
+    .stat { padding: 18px 14px 18px 0; }
+    .stat strong { display: block; color: var(--gold-light); font-size: .94rem; }
+    .stat span { display: block; color: #a7a39a; font-size: .78rem; margin-top: 3px; }
+    section { padding: 100px 0; }
+    .section-head { max-width: 720px; margin-bottom: 42px; }
+    .section-head p { max-width: 650px; }
+    .about-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 70px; align-items: center; }
+    .quote-card { min-height: 360px; background: linear-gradient(145deg, #1c1a15, #111); border: 1px solid var(--line); padding: 36px; display: flex; flex-direction: column; justify-content: space-between; }
+    .quote-mark { color: var(--gold); font-size: 5rem; line-height: .8; }
+    .quote-card blockquote { font-size: clamp(1.7rem, 3vw, 2.6rem); letter-spacing: -.05em; line-height: 1.12; margin: 25px 0; }
+    .about-copy p { font-size: 1.02rem; }
+    .pillars { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 28px; }
+    .pillar { padding: 18px; border: 1px solid rgba(255,255,255,.09); background: var(--panel); }
+    .pillar b { display: block; color: var(--gold-light); letter-spacing: .08em; font-size: .78rem; margin-bottom: 6px; }
+    .pillar span { font-size: .86rem; color: #c3c0b9; }
+    .services { background: #101010; }
+    .service-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .service-card { border: 1px solid rgba(255,255,255,.1); background: var(--panel); padding: 28px; display: flex; flex-direction: column; min-height: 310px; }
+    .service-number { color: var(--gold); font-size: .75rem; letter-spacing: .16em; margin-bottom: 35px; }
+    .service-card p { font-size: .93rem; }
+    .service-card .text-link { margin-top: auto; padding-top: 20px; color: var(--gold-light); font-weight: 800; font-size: .85rem; }
+    .results-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .result-placeholder { aspect-ratio: 4/5; background: linear-gradient(145deg,#292929,#111); border: 1px dashed rgba(201,164,92,.45); display: flex; flex-direction: column; justify-content: end; padding: 22px; }
+    .result-placeholder span { color: var(--gold-light); font-size: .73rem; text-transform: uppercase; letter-spacing: .12em; }
+    .result-placeholder strong { font-size: 1.1rem; margin-top: 5px; }
+    .results-note { font-size: .8rem; margin-top: 18px; }
+    .testimonials { background: #101010; }
+    .testimonial-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
+    .testimonial { border: 1px solid rgba(255,255,255,.1); background: var(--panel); padding: 30px; }
+    .testimonial .stars { color: var(--gold); letter-spacing: .18em; }
+    .testimonial blockquote { margin: 18px 0 22px; font-size: 1.02rem; color: #e5e2dc; }
+    .testimonial .client { color: var(--gold-light); font-weight: 800; font-size: .85rem; }
+    .faq-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: 70px; }
+    details { border-bottom: 1px solid rgba(255,255,255,.12); padding: 19px 0; }
+    summary { cursor: pointer; list-style: none; font-weight: 750; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--gold); float: right; font-size: 1.25rem; }
+    details[open] summary::after { content: "−"; }
+    details p { margin: 14px 30px 0 0; font-size: .92rem; }
+    .contact { background: radial-gradient(ellipse at 80% 30%, rgba(201,164,92,.12), transparent 40%), #121212; }
+    .contact-panel { border: 1px solid var(--line); padding: clamp(28px, 6vw, 70px); display: grid; grid-template-columns: 1fr auto; gap: 35px; align-items: center; }
+    .contact-panel h2 { max-width: 650px; }
+    .contact-actions { display: flex; flex-direction: column; gap: 12px; min-width: 210px; }
+    footer { border-top: 1px solid rgba(255,255,255,.08); padding: 28px 0; color: #8f8b83; font-size: .8rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .socials { display: flex; gap: 18px; }
+    .socials a:hover { color: var(--gold-light); }
+    .mobile-menu { display: none; }
+    @media (max-width: 850px) {
+      .nav-links { gap: 13px; font-size: .8rem; }
+      .nav-cta { display: none; }
+      .hero-grid, .about-grid, .faq-grid { grid-template-columns: 1fr; gap: 35px; }
+      .hero { min-height: auto; }
+      .hero-grid { padding-block: 65px; }
+      .hero-visual { min-height: 0; }
+      .portrait-placeholder { max-width: 360px; }
+      .about-grid { gap: 25px; }
+      .service-grid { grid-template-columns: 1fr 1fr; }
+      .contact-panel { grid-template-columns: 1fr; }
+      .contact-actions { flex-direction: row; flex-wrap: wrap; }
+    }
+    @media (max-width: 600px) {
+      .container { width: min(var(--max), calc(100% - 30px)); }
+      .nav { min-height: 66px; }
+      .nav-links { display: none; }
+      .mobile-menu { display: inline-flex; color: var(--gold-light); font-size: .85rem; }
+      section { padding: 72px 0; }
+      h1 { font-size: clamp(3.15rem, 16vw, 5rem); }
+      .hero-copy { font-size: 1rem; }
+      .stat-strip { gap: 8px; }
+      .stat { padding-right: 4px; }
+      .stat span { font-size: .7rem; }
+      .pillars, .service-grid, .results-grid, .testimonial-grid { grid-template-columns: 1fr; }
+      .service-card { min-height: 260px; }
+      .result-placeholder { aspect-ratio: 5/3; }
+      .quote-card { min-height: 290px; }
+      .contact-actions { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <!-- CONFIGURACIÓN RÁPIDA: reemplaza los valores de CONFIG al final del archivo. -->
+  <header class="topbar">
+    <nav class="container nav" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" aria-label="Juan Felipe Durán, inicio">JF<span>.</span></a>
+      <div class="nav-links">
+        <a href="#historia">Mi historia</a><a href="#servicios">Servicios</a><a href="#transformaciones">Transformaciones</a><a href="#testimonios">Testimonios</a>
+      </div>
+      <a class="nav-cta wa-link" href="#contacto">Hablemos <span aria-hidden="true">↗</span></a>
+      <a class="mobile-menu" href="#contacto">Contacto ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Entrenamiento · Disciplina · Propósito</div>
+          <h1>CONSTRUYE<br> TU <span class="gold">MEJOR</span><br>VERSIÓN.</h1>
+          <p class="hero-copy">Soy Juan Felipe Durán. Te acompaño a desarrollar un físico más fuerte, hábitos sólidos y una mentalidad alineada con la persona que quieres llegar a ser.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary wa-link" href="#contacto">Quiero empezar <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-outline" href="#historia">Conoce mi filosofía</a>
+          </div>
+          <div class="stat-strip">
+            <div class="stat"><strong>ENTRENAMIENTO</strong><span>Con intención y estructura</span></div>
+            <div class="stat"><strong>HÁBITOS</strong><span>Progreso sostenible</span></div>
+            <div class="stat"><strong>PROPÓSITO</strong><span>Una visión integral</span></div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="portrait-placeholder" role="img" aria-label="Espacio reservado para fotografía profesional de Juan Felipe Durán">
+            <div class="monogram">JF</div>
+            <small>Tu fotografía profesional va aquí</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="historia">
+      <div class="container about-grid">
+        <div class="quote-card">
+          <div class="quote-mark">“</div>
+          <blockquote>No se trata solamente de cambiar tu cuerpo. Se trata de convertirte en alguien capaz de sostener ese cambio.</blockquote>
+          <div class="eyebrow">Cuerpo · Mente · Espíritu</div>
+        </div>
+        <div class="about-copy">
+          <div class="eyebrow">Más allá del físico</div>
+          <h2>La transformación empieza en <span class="gold">quién decides ser.</span></h2>
+          <p>El entrenamiento me ha enseñado que los resultados no dependen de la motivación de un solo día, sino de las decisiones que repetimos cuando nadie nos está mirando.</p>
+          <p>Mi visión es ayudarte a construir una relación más fuerte con tu cuerpo, desarrollar disciplina y vivir con propósito. Para mí, crecer también significa mantener los pies en la tierra, agradecer y poner nuestros talentos al servicio de algo más grande.</p>
+          <p><strong class="gold">Esta es mi filosofía:</strong> trabajar con intención, respetar el proceso y buscar una versión más íntegra de nosotros mismos.</p>
+          <div class="pillars">
+            <div class="pillar"><b>01 / CUERPO</b><span>Entrenar, nutrir y cuidar.</span></div>
+            <div class="pillar"><b>02 / MENTE</b><span>Aprender y ser constante.</span></div>
+            <div class="pillar"><b>03 / ESPÍRITU</b><span>Vivir con fe y propósito.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="servicios">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Cómo puedo acompañarte</div>
+          <h2>Un plan que se adapte a <span class="gold">tu proceso.</span></h2>
+          <p>Elige el tipo de acompañamiento que encaje con tus objetivos, tu experiencia y tu estilo de vida. Escríbeme para conocer disponibilidad y detalles.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-number">SERVICIO / 01</div>
+            <h3>Entrenamiento personalizado</h3>
+            <p>Acompañamiento individual para trabajar técnica, planificación y progreso de acuerdo con tus objetivos.</p>
+            <a class="text-link wa-link" href="#contacto">Consultar disponibilidad ↗</a>
+          </article>
+          <article class="service-card">
+            <div class="service-number">SERVICIO / 02</div>
+            <h3>Asesoría online</h3>
+            <p>Una estructura de entrenamiento y seguimiento a distancia para que avances con claridad estés donde estés.</p>
+            <a class="text-link wa-link" href="#contacto">Conocer la asesoría ↗</a>
+          </article>
+          <article class="service-card">
+            <div class="service-number">SERVICIO / 03</div>
+            <h3>Hábitos y estilo de vida</h3>
+            <p>Una mirada integral al proceso: organización, consistencia y hábitos que ayuden a sostener los resultados.</p>
+            <a class="text-link wa-link" href="#contacto">Hablemos de tus metas ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="transformaciones">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Proceso real, trabajo real</div>
+          <h2>Las transformaciones hablan <span class="gold">por el proceso.</span></h2>
+          <p>Este espacio está preparado para mostrar tu evolución y la de tus asesorados, siempre con permiso y contexto honesto.</p>
+        </div>
+        <div class="results-grid">
+          <div class="result-placeholder"><span>Espacio para fotografía</span><strong>Mi evolución personal</strong></div>
+          <div class="result-placeholder"><span>Espacio para fotografía</span><strong>Transformación de asesorado/a</strong></div>
+          <div class="result-placeholder"><span>Espacio para fotografía</span><strong>Progreso y constancia</strong></div>
+        </div>
+        <p class="results-note">Antes de publicar, reemplaza estos espacios por imágenes reales autorizadas y añade un contexto verídico. No prometas resultados idénticos para todas las personas.</p>
+      </div>
+    </section>
+
+    <section class="testimonials" id="testimonios">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Experiencias</div>
+          <h2>El valor del proceso también está en <span class="gold">cómo te transforma.</span></h2>
+          <p>Los testimonios deben venir de personas reales que hayan autorizado su publicación.</p>
+        </div>
+        <div class="testimonial-grid">
+          <article class="testimonial">
+            <div class="stars" aria-label="Testimonio pendiente">★★★★★</div>
+            <blockquote>“Aquí irá el testimonio real de una persona a la que hayas acompañado. Idealmente, que cuente cómo era su situación, qué cambió y qué aprendió durante el proceso.”</blockquote>
+            <div class="client">Nombre del cliente · Pendiente de autorización</div>
+          </article>
+          <article class="testimonial">
+            <div class="stars" aria-label="Testimonio pendiente">★★★★★</div>
+            <blockquote>“Aquí puedes incluir otra experiencia real, centrada no solo en los cambios físicos, sino también en la constancia, los hábitos y la confianza que desarrolló.”</blockquote>
+            <div class="client">Nombre del cliente · Pendiente de autorización</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="preguntas">
+      <div class="container faq-grid">
+        <div class="section-head">
+          <div class="eyebrow">Antes de comenzar</div>
+          <h2>Preguntas <span class="gold">frecuentes.</span></h2>
+          <p>Si tienes otra duda, escríbeme directamente y revisamos qué opción tiene sentido para ti.</p>
+        </div>
+        <div>
+          <details><summary>¿Puedo empezar si soy principiante?</summary><p>Sí. La propuesta de entrenamiento debe adaptarse a tu experiencia, condición actual y objetivos. Cuéntame en qué punto estás para orientarte.</p></details>
+          <details><summary>¿Ofreces acompañamiento online?</summary><p>Sí, la web contempla una opción de asesoría online. Escríbeme para confirmar el formato, el seguimiento y la disponibilidad actual.</p></details>
+          <details><summary>¿Cómo conozco los precios?</summary><p>Los valores no se publican en esta versión porque deben confirmarse contigo. Puedes solicitar por WhatsApp los planes vigentes y lo que incluye cada uno.</p></details>
+          <details><summary>¿Cómo comienzo?</summary><p>Presiona el botón de contacto y cuéntame tu objetivo principal. El siguiente paso es revisar tus necesidades y explicarte las opciones disponibles.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contacto">
+      <div class="container">
+        <div class="contact-panel">
+          <div>
+            <div class="eyebrow">El siguiente paso es tuyo</div>
+            <h2>Tu próxima versión se construye con las decisiones de <span class="gold">hoy.</span></h2>
+            <p>Cuéntame qué quieres cambiar, qué te está costando y qué estás dispuesto a trabajar. Empecemos por una conversación.</p>
+          </div>
+          <div class="contact-actions">
+            <a class="btn btn-primary wa-link" href="#contacto">Hablar por WhatsApp ↗</a>
+            <a class="btn btn-outline ig-link" href="https://www.instagram.com/juanfeliped2/" target="_blank" rel="noopener noreferrer">Instagram @juanfeliped2 ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div><strong class="brand">JF<span>.</span></strong> <span>© <span id="year"></span> Juan Felipe Durán.</span></div>
+      <div class="socials"><a class="ig-link" href="https://www.instagram.com/juanfeliped2/" target="_blank" rel="noopener noreferrer">Instagram</a><a class="wa-link" href="#contacto">WhatsApp</a></div>
+      <div>Entrenamiento · Disciplina · Propósito</div>
+    </div>
+  </footer>
+  <script>
+    // EDITA ESTOS DATOS ANTES DE PUBLICAR.
+    const CONFIG = {
+      instagramUrl: "https://www.instagram.com/juanfeliped2/",
+      whatsappNumber: "573000000000", // Cambia por tu número real: país + número, solo dígitos. Ejemplo Colombia: 573001112233
+      whatsappMessage: "Hola Juan Felipe, quiero conocer tus opciones de entrenamiento y asesoría."
+    };
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.querySelectorAll(".ig-link").forEach(link => link.href = CONFIG.instagramUrl);
+    const phoneIsPlaceholder = !CONFIG.whatsappNumber || CONFIG.whatsappNumber === "573000000000";
+    document.querySelectorAll(".wa-link").forEach(link => {
+      link.href = phoneIsPlaceholder
+        ? "https://www.instagram.com/juanfeliped2/"
+        : "https://wa.me/" + CONFIG.whatsappNumber + "?text=" + encodeURIComponent(CONFIG.whatsappMessage);
+      if (phoneIsPlaceholder) link.title = "Añade tu número de WhatsApp en el archivo index.html para activar este enlace.";
+    });
+  </script>
+</body>
+</html>
