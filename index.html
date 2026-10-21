@@ -31,8 +31,8 @@
     .eyebrow { color: var(--gold-light); text-transform: uppercase; letter-spacing: .19em; font-size: .72rem; font-weight: 700; }
     .gold { color: var(--gold-light); }
     .topbar { position: sticky; top: 0; z-index: 20; background: rgba(11,11,11,.88); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255,255,255,.07); }
-    .nav { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .brand { font-weight: 900; letter-spacing: -.06em; font-size: 1.45rem; white-space: nowrap; }
+    .nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { font-weight: 900; letter-spacing: -.07em; font-size: 1.5rem; white-space: nowrap; }
     .brand span { color: var(--gold-light); }
     .nav-links { display: flex; align-items: center; gap: 23px; color: #d0cec8; font-size: .88rem; }
     .nav-links a:hover { color: var(--gold-light); }
@@ -41,18 +41,20 @@
     .btn:hover, .nav-cta:hover { transform: translateY(-2px); background: var(--gold-light); }
     .btn-outline { border: 1px solid var(--line); color: var(--text); }
     .btn-outline:hover { border-color: var(--gold); }
-    .hero { min-height: 690px; display: grid; align-items: center; position: relative; overflow: hidden; background: radial-gradient(ellipse at 78% 40%, rgba(201,164,92,.15), transparent 36%), linear-gradient(110deg, #0b0b0b 5%, #111 58%, #18150f 100%); }
+    .hero { min-height: 720px; display: grid; align-items: center; position: relative; overflow: hidden; background: radial-gradient(ellipse at 78% 40%, rgba(201,164,92,.18), transparent 36%), linear-gradient(110deg, #080808 5%, #101010 58%, #19150e 100%); }
     .hero::after { content: "JF"; position: absolute; right: -1vw; bottom: -9rem; font-size: clamp(20rem, 45vw, 43rem); line-height: 1; font-weight: 950; letter-spacing: -.12em; color: rgba(255,255,255,.025); pointer-events: none; }
-    .hero-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 50px; align-items: center; padding-block: 90px; position: relative; z-index: 1; }
+    .hero-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 62px; align-items: center; padding-block: 88px; position: relative; z-index: 1; }
     h1 { font-size: clamp(3.2rem, 7vw, 6.6rem); line-height: .94; letter-spacing: -.075em; margin: 18px 0 24px; max-width: 760px; }
     h2 { font-size: clamp(2.1rem, 4.5vw, 3.8rem); line-height: 1.02; letter-spacing: -.06em; margin: 12px 0 20px; }
     h3 { line-height: 1.2; margin: 0 0 12px; }
     p { color: var(--muted); margin-top: 0; }
     .hero-copy { max-width: 590px; font-size: 1.08rem; }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-    .hero-visual { min-height: 440px; position: relative; display: flex; align-items: end; justify-content: center; }
-    .portrait-placeholder { width: min(100%, 420px); aspect-ratio: 4 / 5; border: 1px solid var(--line); background: linear-gradient(145deg, #27231b, #111 62%); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 32px; position: relative; overflow: hidden; }
-    .portrait-placeholder::before { content: ""; position: absolute; inset: 14px; border: 1px solid rgba(201,164,92,.18); }
+    .hero-visual { min-height: 500px; position: relative; display: flex; align-items: center; justify-content: center; }
+    .portrait-placeholder { width: min(100%, 460px); aspect-ratio: 4 / 5; border: 1px solid var(--line); background: linear-gradient(145deg, #27231b, #111 62%); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 32px; position: relative; overflow: hidden; box-shadow: 24px 24px 0 rgba(201,164,92,.07); }
+    .portrait-placeholder::before { content: ""; position: absolute; inset: 14px; border: 1px solid rgba(201,164,92,.35); pointer-events: none; z-index: 2; }
+    .portrait-placeholder img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+    .portrait-placeholder .photo-caption { position: absolute; left: 26px; right: 26px; bottom: 25px; z-index: 3; text-align: left; color: #fff; text-transform: uppercase; letter-spacing: .15em; font-size: .7rem; text-shadow: 0 2px 10px #000; }
     .monogram { font-size: clamp(5rem, 11vw, 9rem); line-height: 1; letter-spacing: -.1em; font-weight: 950; color: var(--gold); }
     .portrait-placeholder small { color: #bdb6a6; letter-spacing: .16em; text-transform: uppercase; font-size: .68rem; margin-top: 18px; }
     .stat-strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); display: grid; grid-template-columns: repeat(3,1fr); margin-top: 45px; max-width: 580px; }
@@ -60,7 +62,9 @@
     .stat strong { display: block; color: var(--gold-light); font-size: .94rem; }
     .stat span { display: block; color: #a7a39a; font-size: .78rem; margin-top: 3px; }
     section { padding: 100px 0; }
-    .section-head { max-width: 720px; margin-bottom: 42px; }
+    .section-head { max-width: 760px; margin-bottom: 48px; }
+    .section-head .eyebrow { display: inline-block; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+    ::selection { background: var(--gold); color: #111; }
     .section-head p { max-width: 650px; }
     .about-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: 70px; align-items: center; }
     .quote-card { min-height: 360px; background: linear-gradient(145deg, #1c1a15, #111); border: 1px solid var(--line); padding: 36px; display: flex; flex-direction: column; justify-content: space-between; }
@@ -73,12 +77,17 @@
     .pillar span { font-size: .86rem; color: #c3c0b9; }
     .services { background: #101010; }
     .service-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
-    .service-card { border: 1px solid rgba(255,255,255,.1); background: var(--panel); padding: 28px; display: flex; flex-direction: column; min-height: 310px; }
+    .service-card { border: 1px solid rgba(255,255,255,.1); background: linear-gradient(155deg, #191919, #101010); padding: 30px; display: flex; flex-direction: column; min-height: 310px; transition: transform .25s ease, border-color .25s ease; }
+    .service-card:hover { transform: translateY(-5px); border-color: var(--line); }
     .service-number { color: var(--gold); font-size: .75rem; letter-spacing: .16em; margin-bottom: 35px; }
     .service-card p { font-size: .93rem; }
     .service-card .text-link { margin-top: auto; padding-top: 20px; color: var(--gold-light); font-weight: 800; font-size: .85rem; }
     .results-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
-    .result-placeholder { aspect-ratio: 4/5; background: linear-gradient(145deg,#292929,#111); border: 1px dashed rgba(201,164,92,.45); display: flex; flex-direction: column; justify-content: end; padding: 22px; }
+    .result-placeholder { aspect-ratio: 4/5; background: linear-gradient(145deg,#292929,#111); border: 1px solid rgba(201,164,92,.3); display: flex; flex-direction: column; justify-content: end; padding: 22px; position: relative; overflow: hidden; }
+    .result-placeholder img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+    .result-placeholder:hover img { transform: scale(1.04); }
+    .result-placeholder::after { content: ""; position: absolute; inset: 35% 0 0; background: linear-gradient(transparent, rgba(0,0,0,.9)); z-index: 1; }
+    .result-placeholder span, .result-placeholder strong { position: relative; z-index: 2; text-shadow: 0 2px 8px #000; }
     .result-placeholder span { color: var(--gold-light); font-size: .73rem; text-transform: uppercase; letter-spacing: .12em; }
     .result-placeholder strong { font-size: 1.1rem; margin-top: 5px; }
     .results-note { font-size: .8rem; margin-top: 18px; }
@@ -167,9 +176,11 @@
           </div>
         </div>
         <div class="hero-visual">
-          <div class="portrait-placeholder" role="img" aria-label="Espacio reservado para fotografía profesional de Juan Felipe Durán">
+          <div class="portrait-placeholder">
+            <img src="images/juan-felipe.jpg" alt="Juan Felipe Durán, entrenador personal" onerror="this.style.display='none';">
             <div class="monogram">JF</div>
-            <small>Tu fotografía profesional va aquí</small>
+            <small>Agrega tu fotografía: images/juan-felipe.jpg</small>
+            <div class="photo-caption">Juan Felipe Durán · Entrenamiento con propósito</div>
           </div>
         </div>
       </div>
@@ -235,9 +246,9 @@
           <p>Este espacio está preparado para mostrar tu evolución y la de tus asesorados, siempre con permiso y contexto honesto.</p>
         </div>
         <div class="results-grid">
-          <div class="result-placeholder"><span>Espacio para fotografía</span><strong>Mi evolución personal</strong></div>
-          <div class="result-placeholder"><span>Espacio para fotografía</span><strong>Transformación de asesorado/a</strong></div>
-          <div class="result-placeholder"><span>Espacio para fotografía</span><strong>Progreso y constancia</strong></div>
+          <div class="result-placeholder"><img src="images/transformacion-1.jpg" alt="Evolución física de Juan Felipe Durán" onerror="this.style.display='none';"><span>01 / Mi proceso</span><strong>Mi evolución personal</strong></div>
+          <div class="result-placeholder"><img src="images/transformacion-2.jpg" alt="Transformación de un asesorado" onerror="this.style.display='none';"><span>02 / Progreso real</span><strong>Transformación de asesorado/a</strong></div>
+          <div class="result-placeholder"><img src="images/transformacion-3.jpg" alt="Progreso de entrenamiento" onerror="this.style.display='none';"><span>03 / Constancia</span><strong>Progreso y constancia</strong></div>
         </div>
         <p class="results-note">Antes de publicar, reemplaza estos espacios por imágenes reales autorizadas y añade un contexto verídico. No prometas resultados idénticos para todas las personas.</p>
       </div>
