@@ -250,6 +250,12 @@
     .faq-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: 70px; }
     details { border-bottom: 1px solid rgba(255,255,255,.12); padding: 19px 0; }
     .service-card .service-details { border: 0; padding: 16px 0 0; margin-top: 18px; }
+    .service-card .service-details summary { color: var(--gold-light); font-size: .88rem; font-weight: 800; }
+    .service-card .service-details summary::after { color: var(--gold); }
+    .service-card .service-expanded { min-width: 0; }
+    .service-card .price-grid { grid-template-columns: 1fr; }
+    .service-card .price-option { min-width: 0; }
+    .service-card .service-contact { max-width: 100%; flex-wrap: wrap; }
     summary { cursor: pointer; list-style: none; font-weight: 750; }
     summary::-webkit-details-marker { display: none; }
     summary::after { content: "+"; color: var(--gold); float: right; font-size: 1.25rem; }
@@ -479,15 +485,99 @@
 </article>
           <article class="service-card">
             <div class="service-number">SERVICIO / 02</div>
-            <h3>Asesoría online</h3>
-            <p>Una estructura de entrenamiento y seguimiento a distancia para que avances con claridad estés donde estés.</p>
-            <a class="text-link wa-link" href="#contacto">Conocer la asesoría ↗</a>
+            <h3>Asesoría virtual</h3>
+            <p>Entrena conmigo desde cualquier lugar del mundo, con una planificación personalizada y acompañamiento adaptado a tu modalidad.</p>
+
+            <details class="service-details">
+              <summary>Conoce los planes y tarifas</summary>
+              <div class="service-expanded">
+                <div class="couple-highlight">
+                  <div class="eyebrow">PLAN 01 · ACOMPAÑAMIENTO CERCANO</div>
+                  <h4>Asesoría virtual con videollamadas</h4>
+                  <p>La distancia no es un límite. Puedes estar en cualquier parte del mundo y entrenar conmigo mediante videollamadas, con seguimiento y orientación durante tu proceso.</p>
+                </div>
+
+                <h4>¿Qué incluye?</h4>
+                <ul class="service-benefits">
+                  <li>Valoración física inicial.</li>
+                  <li>Planificación del entrenamiento según tus objetivos.</li>
+                  <li>Acompañamiento y supervisión mediante videollamadas.</li>
+                  <li>Seguimiento de tu progreso.</li>
+                  <li>Orientación para mejorar tu condición física y rendimiento.</li>
+                </ul>
+                <div class="price-grid">
+                  <div class="price-option">
+                    <h5>Plan virtual con videollamadas</h5>
+                    <span class="price-cop">$300.000 COP</span>
+                    <span class="price-usd">US$90 aprox.</span>
+                    <div class="price-sessions">Acompañamiento y seguimiento virtual personalizado</div>
+                  </div>
+                </div>
+
+                <div class="couple-highlight">
+                  <div class="eyebrow">PLAN 02 · AUTONOMÍA Y ACOMPAÑAMIENTO</div>
+                  <h4>Plan personalizado en PDF</h4>
+                  <p>Recibes un documento PDF con tu planificación de entrenamiento personalizada para que puedas desarrollar tu proceso desde donde estés. No incluye videollamadas.</p>
+                </div>
+                <h4>¿Qué incluye?</h4>
+                <ul class="service-benefits">
+                  <li>Plan de entrenamiento personalizado en formato PDF.</li>
+                  <li>Chat abierto 24/7 por WhatsApp para resolver tus inquietudes.</li>
+                  <li>Orientación durante la ejecución de tu planificación a través del chat.</li>
+                </ul>
+                <div class="price-grid">
+                  <div class="price-option">
+                    <h5>Plan personalizado PDF</h5>
+                    <span class="price-cop">$200.000 COP</span>
+                    <span class="price-usd">US$60 aprox.</span>
+                    <div class="price-sessions">Sin videollamadas · Soporte por WhatsApp</div>
+                  </div>
+                </div>
+
+                <a class="service-contact wa-link" href="#contacto" data-message="Hola Juan Felipe, quiero conocer los planes de asesoría virtual.">
+                  QUIERO MI ASESORÍA VIRTUAL ↗
+                </a>
+              </div>
+            </details>
           </article>
           <article class="service-card">
             <div class="service-number">SERVICIO / 03</div>
             <h3>Hábitos y estilo de vida</h3>
-            <p>Una mirada integral al proceso: organización, consistencia y hábitos que ayuden a sostener los resultados.</p>
-            <a class="text-link wa-link" href="#contacto">Hablemos de tus metas ↗</a>
+            <p>Una guía para transformar tus rutinas, construir hábitos conscientes y crear un estilo de vida que te acerque a la persona que quieres ser.</p>
+
+            <details class="service-details">
+              <summary>Conoce la guía y su valor</summary>
+              <div class="service-expanded">
+                <div class="couple-highlight">
+                  <div class="eyebrow">GUÍA DIGITAL · TU CAMBIO COMIENZA HOY</div>
+                  <h4>Pequeños hábitos. Una vida diferente.</h4>
+                  <p>No siempre necesitas cambiarlo todo de un día para otro. Necesitas empezar a tomar decisiones que estén alineadas con la vida que quieres construir. Cada hábito que fortaleces es una oportunidad para recuperar el control de tus días, cuidar de ti y demostrarte que sí puedes cumplir lo que te propones.</p>
+                  <p>Cuando mejoras tus hábitos, no solo cambia tu rutina: cambia tu energía, tu manera de pensar, la forma en que enfrentas los retos y la perspectiva con la que ves la vida. La transformación real ocurre cuando dejas de perseguir resultados momentáneos y empiezas a construir una vida que te haga sentir orgulloso.</p>
+                  <div class="couple-saving">No se trata de hacerlo perfecto. Se trata de avanzar, un día y una decisión a la vez.</div>
+                </div>
+
+                <h4>¿Qué encontrarás?</h4>
+                <ul class="service-benefits">
+                  <li>Una guía práctica para reflexionar sobre tus hábitos y tu estilo de vida.</li>
+                  <li>Orientación para construir rutinas más conscientes y consistentes.</li>
+                  <li>Ideas para organizar tus prioridades y llevar tus objetivos a la acción.</li>
+                  <li>Un enfoque integral para trabajar en tu bienestar físico, mental y personal.</li>
+                </ul>
+
+                <div class="price-grid">
+                  <div class="price-option">
+                    <h5>Guía digital en PDF</h5>
+                    <span class="price-cop">$150.000 COP</span>
+                    <span class="price-usd">US$45 aprox.</span>
+                    <div class="price-sessions">Material digital para trabajar en tus hábitos y estilo de vida</div>
+                  </div>
+                </div>
+
+                <a class="service-contact wa-link" href="#contacto" data-message="Hola Juan Felipe, quiero información sobre la guía de hábitos y estilo de vida.">
+                  QUIERO COMENZAR EL CAMBIO ↗
+                </a>
+              </div>
+            </details>
           </article>
         </div>
       </div>
