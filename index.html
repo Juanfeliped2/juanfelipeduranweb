@@ -577,11 +577,18 @@
     };
     document.getElementById("year").textContent = new Date().getFullYear();
     document.querySelectorAll(".ig-link").forEach(link => link.href = CONFIG.instagramUrl);
-   document.querySelectorAll(".wa-link").forEach(link => {
-  link.href = "https://wa.me/" + CONFIG.whatsappNumber
-    + "?text=" + encodeURIComponent(CONFIG.whatsappMessage);
+   
+document.querySelectorAll(".wa-link").forEach(link => {
+  const message = link.dataset.message || CONFIG.whatsappMessage;
+
+  link.href = phoneIsPlaceholder
+    ? "https://www.instagram.com/juanfeliped2/"
+    : "https://wa.me/" + CONFIG.whatsappNumber
+      + "?text=" + encodeURIComponent(message);
+
   link.target = "_blank";
   link.rel = "noopener noreferrer";
+});
   link.title = "Hablemos de tu transformación por WhatsApp";
 });
   </script>
