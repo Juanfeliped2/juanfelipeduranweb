@@ -87,7 +87,8 @@
     .service-card { border: 1px solid rgba(255,255,255,.1); background: linear-gradient(155deg, #191919, #101010); padding: 30px; display: flex; flex-direction: column; min-height: 310px; transition: transform .25s ease, border-color .25s ease; }
     .service-card:hover { transform: translateY(-5px); border-color: var(--line); }
     .service-number { color: var(--gold); font-size: .75rem; letter-spacing: .16em; margin-bottom: 35px; }
-    .service-card p { font-size: .93rem; 
+    .service-card p { font-size: .93rem; }
+
 /* DESPLEGABLE DE ENTRENAMIENTO PERSONALIZADO */
 .service-card {
   cursor: default;
@@ -248,6 +249,7 @@
     .testimonial .client { color: var(--gold-light); font-weight: 800; font-size: .85rem; }
     .faq-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: 70px; }
     details { border-bottom: 1px solid rgba(255,255,255,.12); padding: 19px 0; }
+    .service-card .service-details { border: 0; padding: 16px 0 0; margin-top: 18px; }
     summary { cursor: pointer; list-style: none; font-weight: 750; }
     summary::-webkit-details-marker { display: none; }
     summary::after { content: "+"; color: var(--gold); float: right; font-size: 1.25rem; }
@@ -538,7 +540,7 @@
         <div>
           <details><summary>¿Puedo empezar si soy principiante?</summary><p>Sí. La propuesta de entrenamiento debe adaptarse a tu experiencia, condición actual y objetivos. Cuéntame en qué punto estás para orientarte.</p></details>
           <details><summary>¿Ofreces acompañamiento online?</summary><p>Sí, la web contempla una opción de asesoría online. Escríbeme para confirmar el formato, el seguimiento y la disponibilidad actual.</p></details>
-          <details><summary>¿Cómo conozco los precios?</summary><p>Los valores no se publican en esta versión porque deben confirmarse contigo. Puedes solicitar por WhatsApp los planes vigentes y lo que incluye cada uno.</p></details>
+          <details><summary>¿Cómo conozco los precios?</summary><p>En la sección de servicios puedes consultar las tarifas del entrenamiento personalizado individual y en pareja. Para conocer la disponibilidad y resolver dudas, escríbeme directamente.</p></details>
           <details><summary>¿Cómo comienzo?</summary><p>Presiona el botón de contacto y cuéntame tu objetivo principal. El siguiente paso es revisar tus necesidades y explicarte las opciones disponibles.</p></details>
         </div>
       </div>
@@ -572,25 +574,30 @@
     // EDITA ESTOS DATOS ANTES DE PUBLICAR.
     const CONFIG = {
       instagramUrl: "https://www.instagram.com/juanfeliped2/",
-      whatsappNumber: "573052613062", 
+      whatsappNumber: "573052613062",
       whatsappMessage: "Hola Juan Felipe, quiero conocer tus opciones de entrenamiento y asesoría."
     };
+
     document.getElementById("year").textContent = new Date().getFullYear();
-    document.querySelectorAll(".ig-link").forEach(link => link.href = CONFIG.instagramUrl);
-   
-document.querySelectorAll(".wa-link").forEach(link => {
-  const message = link.dataset.message || CONFIG.whatsappMessage;
+    document.querySelectorAll(".ig-link").forEach(link => {
+      link.href = CONFIG.instagramUrl;
+    });
 
-  link.href = phoneIsPlaceholder
-    ? "https://www.instagram.com/juanfeliped2/"
-    : "https://wa.me/" + CONFIG.whatsappNumber
-      + "?text=" + encodeURIComponent(message);
+    const phoneIsPlaceholder = !CONFIG.whatsappNumber || CONFIG.whatsappNumber === "573000000000";
 
-  link.target = "_blank";
-  link.rel = "noopener noreferrer";
-});
-  link.title = "Hablemos de tu transformación por WhatsApp";
-});
+    document.querySelectorAll(".wa-link").forEach(link => {
+      const message = link.dataset.message || CONFIG.whatsappMessage;
+
+      link.href = phoneIsPlaceholder
+        ? CONFIG.instagramUrl
+        : "https://wa.me/" + CONFIG.whatsappNumber + "?text=" + encodeURIComponent(message);
+
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.title = phoneIsPlaceholder
+        ? "Configura tu número de WhatsApp para activar este enlace."
+        : "Hablemos de tu transformación por WhatsApp";
+    });
   </script>
 </body>
 </html>
